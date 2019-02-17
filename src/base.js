@@ -1,6 +1,6 @@
-import Rebase from 're-base'
-import firebase from 'firebase/app'
-import 'firebase/database'
+import Rebase from '../node_modules/re-base'
+import firebase from '../node_modules/firebase/app'
+import '../node_modules/firebase/database'
 
 const firebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyDHRjpk-YGHqP13bfUQVR8-W3KPMf4_4Zc",
@@ -8,7 +8,8 @@ const firebaseApp = firebase.initializeApp({
   databaseURL: "https://recipeapp-7a983.firebaseio.com",
 })
 
-const base = Rebase.createClass(firebaseApp.database())
+const base = Rebase.createClass(firebase.database())
+
 
 // This is a named export
 export { firebaseApp }

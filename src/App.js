@@ -5,8 +5,7 @@ import Header from './components/Header'
 import recettes from './recettes'; 
 import Admin from './components/Admin';
 import Card from './components/Card'
-//firebase 
-import base from './base'
+
 
 class App extends Component {
   state = {
@@ -14,12 +13,11 @@ class App extends Component {
     recettes: {}
   }
 
-  componentDidMount(){
-    base.syncState(`/${this.state.pseudo}/recettes`, {
-      constext: this, 
-      state: 'recettes' 
-    })
-}
+  addRecipe = recette => {
+    const recettes = {...this.state.recettes}
+    recettes[`recette-${Date.now()}` = recette]
+    this.setState({ recettes })
+  }
 
 
   loadExample = () => this.setState({recettes})
