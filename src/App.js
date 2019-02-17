@@ -5,12 +5,22 @@ import Header from './components/Header'
 import recettes from './recettes'; 
 import Admin from './components/Admin';
 import Card from './components/Card'
+//firebase 
+import base from './base'
 
 class App extends Component {
   state = {
     pseudo: this.props.match.params.pseudo,
     recettes: {}
   }
+
+  componentDidMount(){
+    base.syncState(`/${this.state.pseudo}/recettes`, {
+      constext: this, 
+      state: 'recettes' 
+    })
+}
+
 
   loadExample = () => this.setState({recettes})
 
