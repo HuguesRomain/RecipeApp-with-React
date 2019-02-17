@@ -1,7 +1,7 @@
 import React from 'react'; 
 
 const Header = ({pseudo}) => {
-  const formatPseudo = pseudo => /[aeiouy]/i.test(pseudo[0]) ? `d'${pseudo}` : `de${pseudo}` 
+  const formatPseudo = pseudo => /[aeiouy]/i.test(pseudo[0]) ? `d'${pseudo}` : `${pseudo}` 
   return(
     <header>
       <h1>La boîte à recettes de {formatPseudo(pseudo)}</h1>
